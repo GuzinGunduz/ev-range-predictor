@@ -9,4 +9,5 @@ include_directories(include)
 add_executable(EVRangePredictor
     src/main.cpp
     src/RangeCalculator.cpp
+    src/Logger.cpp
 )

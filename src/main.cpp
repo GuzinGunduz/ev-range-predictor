@@ -1,6 +1,8 @@
 #include <iostream> //Required for printing to the console
 #include "CanMessage.hpp"
 #include "RangeCalculator.hpp"
+#include "Logger.hpp"
+
 
 
 //#include "../include/CanMessage.hpp" // Include the CanMessage class we created
@@ -9,6 +11,13 @@
 int main() {
     //Print a message to show that the program has started
     std::cout << "EV Range Estimator Simulator Starting..." << std::endl;
+
+    Logger logger;
+    //Logsome info 
+    logger.logMessage("EV simulator started. ");
+    logger.logMessage("Battery level: 75%");
+    logger.logMessage("Estimated range : 112.5 km");
+    
 
     //Create a fake CAN Message 
     //0x120 is the message ID (in hexadecimal)
