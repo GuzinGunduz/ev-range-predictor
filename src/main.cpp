@@ -1,47 +1,36 @@
-#include <iostream> //Required for printing to the console
-#include "CanMessage.hpp"
-#include "RangeCalculator.hpp"
-#include "Logger.hpp"
+#include <iostream>                  // Required for console output
+#include "CanMessage.hpp"           // CAN message structure
+#include "RangeCalculator.hpp"      // Range estimation logic
+#include "Logger.hpp"               // Logging utility
+#include "CanMessageGenerator.hpp"  // Fake CAN message generator
 
-
-
-//#include "../include/CanMessage.hpp" // Include the CanMessage class we created
-//Note: I dont need to use ../ anymore in the path, since I already told CMakeLists.txt to include
-// include/ directory with this line : include_directories(include) So I deleted. 
 int main() {
-    //Print a message to show that the program has started
     std::cout << "EV Range Estimator Simulator Starting..." << std::endl;
 
+    // Step 1: Create logger and write initial info
     Logger logger;
-    //Logsome info 
-    logger.logMessage("EV simulator started. ");
+    logger.logMessage("EV simulator started.");
     logger.logMessage("Battery level: 75%");
-    logger.logMessage("Estimated range : 112.5 km");
-    
 
-    //Create a fake CAN Message 
-    //0x120 is the message ID (in hexadecimal)
-    // 3 is the number of data bytes (DLC)
-    // The vektor contains the actual data bytes
-    CanMessage message(0x120, 3, {34, 89, 200 });
-
-    //Step2:Create a RangeCalculator __cpp_lib_has_unique_object_representations
+    // Step 2: Estimate range using fake battery percentage
     RangeCalculator calculator;
-
-    //Step3: Set battery level to fake value (e.g. 75%)
     calculator.setBatteryPercentage(75);
-
-    //Step4: Calculate estimated range
     float estimatedRange = calculator.estimateRange();
 
-    
-    //Print the CAN message using the toText() method 
-    // std::cout << "Fake CAN Message: " << message.toText() << std::endl;
-   
-    //Step 5: Print Result
-    std::cout <<"Estimated Driving Range: " <<estimatedRange << "km" << std::endl;
+    // Step 3: Print and log estimated range
+    std::cout << "Estimated Driving Range: " << estimatedRange << "km" << std::endl;
+    logger.logMessage("Estimated range : " + std::to_string(estimatedRange) + " km");
 
+    // Step 4: Generate a fake CAN message from battery value
+    CanMessageGenerator generator;
+    CanMessage message = generator.GenerateBatteryMessage();
+
+    // Step 5: Print and log the generated CAN message
+    std::string canText = message.toText();
+    std::cout << "Generated CAN Message: " << canText << std::endl;
+    logger.logMessage("Generated CAN Message: " + canText);
 
     return 0;
 }
+
  
