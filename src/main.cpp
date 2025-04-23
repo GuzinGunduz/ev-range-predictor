@@ -9,8 +9,8 @@ int main() {
 
     // Step 1: Create the logger so we can save events to log.txt
     Logger logger;
+    logger.logMessage("---------------------------------------------------");
     logger.logMessage("EV simulator started.");
-    logger.logMessage("Battery level: 75%");
 
     // Step 2: Estimate how far the car can go based on 75% battery
     RangeCalculator calculator;
