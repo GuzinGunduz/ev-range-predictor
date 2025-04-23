@@ -24,18 +24,27 @@ int main() {
     // Step 4: Create a fake CAN message that contains a random battery % (0-100)
     CanMessageGenerator generator;
     CanMessage message = generator.GenerateBatteryMessage();
+    CanMessage speedMessage = generator.GenerateSpeedMessage();
 
     // Step 5: Print the raw CAN message format (ID, DLC, data bytes)
-    std::string canText = message.toText();
-    std::cout << "Generated CAN Message: " << canText << std::endl;
-    logger.logMessage("Generated CAN Message: " + canText);
+    std::string batteryText = message.toText();
+    std::cout << "Battery CAN Message: " << batteryText << std::endl;
+    logger.logMessage("Battery CAN Message: " + batteryText);
 
-    // Step 6: Decode the CAN message to make sense of the data (e.g. battery level = 76%)
-    std::string decodedInfo = message.decode();
-    std::cout << "Decoded: " << decodedInfo << std::endl;
-    logger.logMessage("Decoded: " + decodedInfo);
+    //Decode battery
+    std::string decodedBattery = message.decode();
+    std::cout << "Decoded: " << decodedBattery << std::endl;
+    logger.logMessage("Decoded: " + decodedBattery);
+    //Speed 
+    std::string speedText = speedMessage.toText();
+    std::cout << "Generated Speed CAN Message: " << speedText << std::endl;
+    logger.logMessage("Generated Speed CAN Message: " + speedText);
+    //Decode Speed
+    std::string decodedSpeed = speedMessage.decode();
+    std::cout << "Decoded: " << decodedSpeed << std::endl;
+    logger.logMessage("Decoded: " + decodedSpeed);
+
+    
 
     return 0;
 }
-
- 

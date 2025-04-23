@@ -12,6 +12,7 @@ public:
     
     //Generate CAN Message with random Battery percentage%
     CanMessage GenerateBatteryMessage();
+    CanMessage GenerateSpeedMessage();
 
 private: //Only works in this class, main.cpp is not reach this class// like access specifier, bu bir erisim belirleyicidir.
     

@@ -33,6 +33,9 @@ public:
         if (id == 0x120 && data.size() >= 1) {
             return "Battery Level = " + std::to_string(data[0]) + "%";
         }
+        else if (id == 0x130 && data.size() >= 1) {
+            return "Speed = " + std::to_string(data[0]) + " km/h";
+        }
         return "Unknown message or unsupported ID";
     }
 };
