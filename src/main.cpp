@@ -3,7 +3,7 @@
 #include "RangeCalculator.hpp"      // Calculates how far the car can go
 #include "Logger.hpp"               // Handles writing logs to a file
 #include "CanMessageGenerator.hpp"  // Creates fake battery CAN messages with random values
-
+#include "MissionSimulator.hpp"
 int main() {
     std::cout << "EV Range Estimator Simulator Starting..." << std::endl;
 
@@ -44,7 +44,9 @@ int main() {
     std::cout << "Decoded: " << decodedSpeed << std::endl;
     logger.logMessage("Decoded: " + decodedSpeed);
 
-    
+    // Step 6: Run a route simulation
+    MissionSimulator simulator(100.0f); // 100 km route, battery starts at 100%
+    simulator.runSimulation();
 
     return 0;
 }
