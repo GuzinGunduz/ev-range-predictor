@@ -1,14 +1,14 @@
 #include "CanMessageGenerator.hpp"
 #include "CanMessage.hpp" 
+#include <chrono>
 #include <vector> // we need to use std::vector
 
 //Constructor- Initiliza battery distribution 0-100
-CanMessageGenerator:: CanMessageGenerator()
-//Member initilizer list 
-//Bu sınıfın constructor’ında,sınıfın içindeki bir değişkeni constructor gövdesine girmeden önce başlatmak istiyoruz.
-    :batteryDist(0, 100) // Initilizer list- //Note: ınıfın private: bölümünde tanımlanmıştı in .hpp de
+CanMessageGenerator::CanMessageGenerator()
+    : engine(std::chrono::system_clock::now().time_since_epoch().count()), //Seed with current time
+      batteryDist(0, 100)
 {
- // engine is auto-seeded using system clock by default
+    // engine now uses a time-based seed
 }
 
 //This function creates CanMessage with random battery% as a data
