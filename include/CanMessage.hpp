@@ -28,6 +28,13 @@ public:
         }
         return text;
     }
+    // Decodes data based on known CAN message ID
+    std::string decode() {
+        if (id == 0x120 && data.size() >= 1) {
+            return "Battery Level = " + std::to_string(data[0]) + "%";
+        }
+        return "Unknown message or unsupported ID";
+    }
 };
 
 #endif // CANMESSAGE_HPP
