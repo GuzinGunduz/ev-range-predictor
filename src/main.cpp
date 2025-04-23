@@ -45,7 +45,10 @@ int main() {
     logger.logMessage("Decoded: " + decodedSpeed);
 
     // Step 6: Run a route simulation
-    MissionSimulator simulator(100.0f); // 100 km route, battery starts at 100%
+    float batteryPercent = static_cast<float>(message.data[0]);
+    MissionSimulator simulator(100.0f, batteryPercent);
+    //Note. why we changed: Hey, the battery is currently 49%, simulate with that.
+
     simulator.runSimulation();
 
     return 0;

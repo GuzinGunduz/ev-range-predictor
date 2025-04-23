@@ -1,4 +1,5 @@
 #include "MissionSimulator.hpp"
+#include "Logger.hpp"
 #include <iostream>  // For std::cout
 #include <iomanip>   // For controlling float precision
 
@@ -40,4 +41,15 @@ void MissionSimulator::runSimulation() {
     std::cout << "Simulated speed: " << speed << " km/h" << std::endl;
     std::cout << "Estimated time to arrival: " << std::fixed << std::setprecision(2) << eta << " hours" << std::endl;
     std::cout << "Battery level after trip: " << std::fixed << std::setprecision(1) << batteryLevel << "%" << std::endl;
+
+    Logger logger;
+
+logger.logMessage("**************************");
+logger.logMessage("Mission Simulation Summary");
+logger.logMessage("Route distance: " + std::to_string(routeDistance) + " km");
+logger.logMessage("Simulated speed: " + std::to_string((int)speed) + " km/h");
+
+logger.logMessage("ETA: " + std::to_string((int)(eta * 60)) + " min");
+logger.logMessage("Battery after trip: " + std::to_string((int)batteryLevel) + "%");
+
 }
