@@ -13,6 +13,8 @@ public:
     //Generate CAN Message with random Battery percentage%
     CanMessage GenerateBatteryMessage();
     CanMessage GenerateSpeedMessage();
+    // random cargo weight (in tons)
+    float GenerateCargoWeight();
 
 private: //Only works in this class, main.cpp is not reach this class// like access specifier, bu bir erisim belirleyicidir.
     
