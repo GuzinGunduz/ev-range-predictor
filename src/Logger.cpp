@@ -3,7 +3,7 @@
 
 // Constructor - opens the log file
 Logger::Logger() {
-    logFile.open("log.txt", std::ios::app);  // Open file in append mode
+    logFile.open("../logs/log.txt", std::ios::app);  // Open file in append mode
     if (!logFile.is_open()) {
         std::cerr << "Error: Could not open log.txt for writing." << std::endl;
     }
