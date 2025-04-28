@@ -17,6 +17,7 @@ private:
     float batteryLevel;      // Current battery % (0–100)
     float speed;             // Simulated vehicle speed (km/h)
     float eta;               // Estimated time of arrival (in hours)
+    float cargoWeight;       // Simulated heavy trucks now. (tons)
 
     CanMessageGenerator generator; // Reuse your speed generator
 
