@@ -38,3 +38,8 @@ CanMessage CanMessageGenerator::GenerateSpeedMessage() {
     // Return a CAN message with ID 0x130 (used for speed messages)
     return CanMessage(0x130, data.size(), data);
 }
+// Generate a random cargo weight between 0.0 and 20.0 tons
+float CanMessageGenerator::GenerateCargoWeight() {
+    std::uniform_real_distribution<float> weightDist(0.0f, 20.0f); // 0-20 tons
+    return weightDist(engine);
+}
