@@ -11,5 +11,6 @@ add_executable(EVRangePredictor
     src/RangeCalculator.cpp
     src/Logger.cpp
     src/CanMessageGenerator.cpp
+    src/MissionSimulator.cpp
 
 )
