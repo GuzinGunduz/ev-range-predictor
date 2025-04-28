@@ -52,9 +52,9 @@ void MissionSimulator::runSimulation() {
     // Step 4: Estimate battery usage
     float batteryUsed = calculateBatteryUsed(routeDistance);
     batteryLevel -= batteryUsed;
-    
+
     if (batteryLevel < 0.0f) {
-        batteryLevel = 0.0f; // Battery can't be negative
+        batteryLevel = 0.0f; // Battery can't be negative, I'm setting 0. 
     }
 
     // Step 5: Print the summary
