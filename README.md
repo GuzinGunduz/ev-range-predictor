@@ -70,20 +70,21 @@ Estimated time to arrival: 2.50 hours
 Battery level after trip: 61.3%
 
 
-example2: from logged into /logs/log.txt file.
+example2:
+From logged into /logs/log.txt file.
 EV simulator started.
 Estimated range : 112 km
-Battery CAN Message: ID: 288 | DLC: 1 | DATA: 67 
-Decoded: Battery Level = 67%
-Generated Speed CAN Message: ID: 304 | DLC: 1 | DATA: 41 
-Decoded: Speed = 41 km/h
-Simulated Cargo Weight: 15.030428 tons
+Battery CAN Message: ID: 288 | DLC: 1 | DATA: 100 
+Decoded: Battery Level = 100%
+Generated Speed CAN Message: ID: 304 | DLC: 1 | DATA: 87 
+Decoded: Speed = 87 km/h
+Simulated Cargo Weight: 3.292999 tons
 **************************
 Mission Simulation Summary
 Route distance: 100.000000 km
-Simulated speed: 4 km/h
-ETA: 1500 min
-Battery after trip: 26%
+Simulated speed: 96 km/h
+ETA: 62 min (Estimated Time of Arrival)
+Battery after trip: 71%
 
 
 ## Future Improvements (Optional Ideas)
